@@ -1,48 +1,52 @@
-# Enhanced Sentiment Analyzer
+# Sentiment Analyzer
 
-A modern web-based sentiment analysis tool with voice input support and advanced text analytics.
+A modern, feature-rich web application for analyzing text sentiment and exploring language statistics.
 
 ## Features
 
-- Real-time sentiment analysis with confidence scores
-- Voice input support for hands-free text entry
-- Dark/Light theme with persistent preferences
-- Advanced text statistics and readability metrics
-- Analysis history with local storage
-- Modern, responsive UI with animations
-- Emoji support for sentiment visualization
+* Sentiment Analysis: Analyze text sentiment with confidence scores
+* Voice Input: Speak your text for hands-free analysis
+* Text Statistics: Get detailed readability metrics and text insights
+* Theme Toggle: Switch between dark and light modes
+* History: Track your previous analyses with local storage
+* Responsive Design: Works perfectly on all devices
 
-## Tech Stack
+## Live Demo
 
-- Python (HTTP Server)
-- HTML5/CSS3
-- Vanilla JavaScript
-- Web Speech API
-- Font Awesome Icons
+Try it now: [Sentiment Analyzer Demo](https://raktimchandra.github.io/Sentiment-Analyzer/)
+
+## Technologies Used
+
+* HTML5
+* CSS3 (Flexbox and Grid)
+* Vanilla JavaScript
+* Web Speech API
+* Font Awesome Icons
+* LocalStorage API
 
 ## Getting Started
 
-1. Clone the repository:
-```bash
-git clone https://github.com/RaktimChandra/enhanced-sentiment-analyzer.git
-cd enhanced-sentiment-analyzer
-```
+1. Clone the repository
+2. Open `index.html` in your browser
+3. Start analyzing text!
 
-2. Run the server:
-```bash
-python main.py
-```
+## Features in Detail
 
-3. Open your browser and navigate to `http://localhost:9001`
+### Text Analysis
+- Real-time sentiment scoring
+- Confidence metrics
+- Word and character counts
+- Sentence analysis
+- Readability scores
 
-## Usage
+### User Interface
+- Modern, clean design
+- Dark/Light themes
+- Voice input support
+- Analysis history
+- Responsive layout
 
-1. Enter text manually or use the voice input button
-2. Click "Analyze" to get sentiment analysis results
-3. View detailed text statistics and readability metrics
-4. Toggle between light and dark themes
-5. Check your analysis history
+## Author
 
-## License
-
-MIT License
+Raktim Chandra
+- GitHub: [@RaktimChandra](https://github.com/RaktimChandra)
