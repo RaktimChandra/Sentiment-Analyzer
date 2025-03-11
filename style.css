@@ -1,22 +1,22 @@
 /* Variables */
 :root {
     --primary-color: #1a73e8;
-    --text-color: #333;
-    --bg-color: #fff;
+    --text-color: #202124;
+    --bg-color: #ffffff;
     --card-bg: #f8f9fa;
-    --border-color: #e0e0e0;
+    --border-color: #dadce0;
     --shadow-color: rgba(0, 0, 0, 0.1);
-    --positive-color: #4caf50;
-    --negative-color: #f44336;
-    --neutral-color: #757575;
+    --positive-color: #34a853;
+    --negative-color: #ea4335;
+    --neutral-color: #5f6368;
 }
 
 /* Dark Theme */
 [data-theme="dark"] {
-    --text-color: #fff;
-    --bg-color: #1a1a1a;
-    --card-bg: #2d2d2d;
-    --border-color: #404040;
+    --text-color: #e8eaed;
+    --bg-color: #202124;
+    --card-bg: #2d2e31;
+    --border-color: #5f6368;
     --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -28,10 +28,10 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -47,14 +47,16 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
 }
 
 h1 {
-    font-size: 2.5rem;
     color: var(--primary-color);
+    font-size: 2rem;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 /* Theme Toggle */
@@ -125,6 +127,12 @@ textarea {
     font-size: 1rem;
     background-color: var(--bg-color);
     color: var(--text-color);
+    transition: border-color 0.3s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
 }
 
 .button-group {
@@ -164,7 +172,7 @@ textarea {
     gap: 2rem;
 }
 
-.sentiment-result, .text-stats, .history-section {
+.card {
     background-color: var(--card-bg);
     padding: 1.5rem;
     border-radius: 12px;
@@ -172,8 +180,11 @@ textarea {
 }
 
 h2 {
-    margin-bottom: 1rem;
     color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 /* Sentiment Score */
@@ -189,6 +200,11 @@ h2 {
 .score {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.confidence {
+    color: var(--neutral-color);
 }
 
 /* Text Statistics */
@@ -199,9 +215,6 @@ h2 {
 }
 
 .stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
     padding: 1rem;
     background-color: var(--bg-color);
@@ -209,14 +222,15 @@ h2 {
 }
 
 .label {
-    font-size: 0.9rem;
     color: var(--neutral-color);
+    font-size: 0.9rem;
 }
 
 .value {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--primary-color);
+    margin-top: 0.5rem;
 }
 
 /* History Section */
@@ -228,10 +242,17 @@ h2 {
 .history-item {
     padding: 1rem;
     border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .history-item:last-child {
     border-bottom: none;
+}
+
+.history-item small {
+    color: var(--neutral-color);
 }
 
 /* Footer */
@@ -258,7 +279,16 @@ footer a:hover {
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
     }
 
     .results-section {

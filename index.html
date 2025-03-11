@@ -7,13 +7,8 @@
     <meta name="keywords" content="sentiment analysis, text analysis, voice input, dark mode, readability metrics">
     <meta name="author" content="Raktim Chandra">
     <title>Sentiment Analyzer</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Open Graph tags for better sharing -->
-    <meta property="og:title" content="Sentiment Analyzer">
-    <meta property="og:description" content="Analyze text sentiment with voice input support and advanced analytics">
-    <meta property="og:url" content="https://raktimchandra.github.io/Sentiment-Analyzer/">
-    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="style.css">
     <style>
         :root {
             --primary-color: #1a73e8;
@@ -369,12 +364,12 @@
 <body data-theme="light">
     <div class="container">
         <header>
-            <h1>Sentiment Analyzer <i class="fas fa-brain"></i></h1>
+            <h1><i class="fas fa-brain"></i> Sentiment Analyzer</h1>
             <div class="theme-toggle">
                 <i class="fas fa-sun"></i>
                 <label class="switch">
                     <input type="checkbox" id="theme-toggle">
-                    <span class="slider round"></span>
+                    <span class="slider"></span>
                 </label>
                 <i class="fas fa-moon"></i>
             </div>
@@ -382,7 +377,7 @@
 
         <main>
             <div class="input-section">
-                <textarea id="text-input" placeholder="Enter text to analyze..."></textarea>
+                <textarea id="text-input" placeholder="Enter text to analyze or use voice input..."></textarea>
                 <div class="button-group">
                     <button id="voice-btn" class="btn">
                         <i class="fas fa-microphone"></i> Voice Input
@@ -397,8 +392,8 @@
             </div>
 
             <div class="results-section">
-                <div class="sentiment-result">
-                    <h2>Sentiment Analysis</h2>
+                <div class="sentiment-result card">
+                    <h2><i class="fas fa-heart"></i> Sentiment Analysis</h2>
                     <div id="sentiment-score">
                         <div class="emoji">😐</div>
                         <div class="score">Neutral</div>
@@ -406,30 +401,30 @@
                     </div>
                 </div>
 
-                <div class="text-stats">
-                    <h2>Text Statistics</h2>
+                <div class="text-stats card">
+                    <h2><i class="fas fa-chart-bar"></i> Text Statistics</h2>
                     <div id="stats-container">
                         <div class="stat">
-                            <span class="label">Words:</span>
+                            <span class="label">Words</span>
                             <span class="value" id="word-count">0</span>
                         </div>
                         <div class="stat">
-                            <span class="label">Characters:</span>
+                            <span class="label">Characters</span>
                             <span class="value" id="char-count">0</span>
                         </div>
                         <div class="stat">
-                            <span class="label">Sentences:</span>
+                            <span class="label">Sentences</span>
                             <span class="value" id="sentence-count">0</span>
                         </div>
                         <div class="stat">
-                            <span class="label">Readability:</span>
+                            <span class="label">Readability</span>
                             <span class="value" id="readability">Easy</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="history-section">
-                    <h2>Analysis History</h2>
+                <div class="history-section card">
+                    <h2><i class="fas fa-history"></i> Analysis History</h2>
                     <div id="history-list"></div>
                 </div>
             </div>
