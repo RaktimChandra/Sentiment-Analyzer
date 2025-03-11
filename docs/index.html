@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Sentiment Analyzer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="light">
+    <div class="container">
+        <header>
+            <div class="title">
+                <i class="fas fa-brain fa-2x"></i>
+                <h1>Sentiment Analyzer</h1>
+            </div>
+            <div class="controls">
+                <div class="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-switch">
+                        <span class="slider"></span>
+                    </label>
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="demo-banner">
+                <p>📝 This is a static demo version. For full features, check out the <a href="https://github.com/RaktimChandra/Sentiment-Analyzer" target="_blank">GitHub repository</a>.</p>
+            </div>
+
+            <section class="input-section">
+                <div class="input-container">
+                    <textarea id="text-input" placeholder="Enter your text here or use voice input..."></textarea>
+                </div>
+                <div class="button-group">
+                    <button onclick="analyzeSentiment()">
+                        <i class="fas fa-search"></i> Analyze
+                    </button>
+                    <button id="voice-btn" onclick="toggleVoiceInput()">
+                        <i class="fas fa-microphone"></i> Voice Input
+                    </button>
+                    <button onclick="clearAll()" style="background-color: #5f6368">
+                        <i class="fas fa-trash"></i> Clear
+                    </button>
+                </div>
+            </section>
+
+            <div id="loading">
+                <div class="spinner"></div>
+                <p>Analyzing your text...</p>
+            </div>
+
+            <div class="results-grid">
+                <div class="card sentiment-result" id="sentiment-card" style="display: none;">
+                    <h3><i class="fas fa-heart"></i> Sentiment Analysis</h3>
+                    <div class="emoji" id="sentiment-emoji"></div>
+                    <h2 id="sentiment-text"></h2>
+                    <div class="confidence-bar">
+                        <div class="confidence-level"></div>
+                    </div>
+                    <p>Confidence: <span id="confidence-value">0</span>%</p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-chart-bar"></i> Text Statistics</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="label">Words</div>
+                            <div class="value" id="word-count">0</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="label">Characters</div>
+                            <div class="value" id="char-count">0</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="label">Sentences</div>
+                            <div class="value" id="sentence-count">0</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="label">Unique Words</div>
+                            <div class="value" id="unique-words">0</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <p>Readability Score</p>
+                        <div class="readability-meter">
+                            <div class="readability-level" id="readability-level"></div>
+                        </div>
+                        <p style="text-align: right; font-size: 0.9em;">
+                            <span id="readability-text">Easy to read</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-history"></i> Analysis History</h3>
+                    <div class="history-list" id="history-list"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="sentiment.js"></script>
+</body>
+</html>
