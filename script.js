@@ -30,6 +30,7 @@ if ('webkitSpeechRecognition' in window) {
     recognition = new webkitSpeechRecognition();
     recognition.continuous = false;
     recognition.interimResults = false;
+    recognition.lang = 'en-US';
 
     recognition.onresult = (event) => {
         const text = event.results[0][0].transcript;
@@ -40,18 +41,26 @@ if ('webkitSpeechRecognition' in window) {
 
     recognition.onerror = () => {
         voiceBtn.innerHTML = '<i class="fas fa-microphone"></i> Voice Input';
+        alert('Voice input error. Please try again.');
+    };
+
+    recognition.onend = () => {
+        voiceBtn.innerHTML = '<i class="fas fa-microphone"></i> Voice Input';
     };
 }
 
 voiceBtn.addEventListener('click', () => {
-    if (recognition) {
-        if (voiceBtn.innerHTML.includes('Stop')) {
-            recognition.stop();
-            voiceBtn.innerHTML = '<i class="fas fa-microphone"></i> Voice Input';
-        } else {
-            recognition.start();
-            voiceBtn.innerHTML = '<i class="fas fa-stop"></i> Stop';
-        }
+    if (!recognition) {
+        alert('Voice input is not supported in your browser.');
+        return;
+    }
+
+    if (voiceBtn.innerHTML.includes('Stop')) {
+        recognition.stop();
+        voiceBtn.innerHTML = '<i class="fas fa-microphone"></i> Voice Input';
+    } else {
+        recognition.start();
+        voiceBtn.innerHTML = '<i class="fas fa-stop"></i> Stop';
     }
 });
 
@@ -87,11 +96,23 @@ const getReadabilityScore = (text) => {
 // Sentiment Analysis
 const analyzeSentiment = () => {
     const text = textInput.value.trim();
-    if (!text) return;
+    if (!text) {
+        alert('Please enter some text to analyze.');
+        return;
+    }
 
     // Simple lexicon-based sentiment analysis
-    const positiveWords = new Set(['good', 'great', 'awesome', 'excellent', 'happy', 'love', 'wonderful', 'fantastic']);
-    const negativeWords = new Set(['bad', 'terrible', 'awful', 'horrible', 'sad', 'hate', 'poor', 'disappointing']);
+    const positiveWords = new Set([
+        'good', 'great', 'awesome', 'excellent', 'happy', 'love', 'wonderful', 'fantastic',
+        'beautiful', 'amazing', 'perfect', 'best', 'brilliant', 'outstanding', 'superb',
+        'delightful', 'pleasant', 'joyful', 'exciting', 'impressive'
+    ]);
+    
+    const negativeWords = new Set([
+        'bad', 'terrible', 'awful', 'horrible', 'sad', 'hate', 'poor', 'disappointing',
+        'worse', 'worst', 'ugly', 'stupid', 'boring', 'annoying', 'unpleasant',
+        'disgusting', 'dreadful', 'miserable', 'pathetic', 'frustrating'
+    ]);
     
     const words = text.toLowerCase().match(/\w+/g) || [];
     let positive = 0;
